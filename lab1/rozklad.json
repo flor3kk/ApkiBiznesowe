@@ -1,0 +1,49 @@
+{
+    "$schema": "./schemat.json",
+
+    "dataOd": "2020-12-12",
+    "dataDo": "2024-12-12",
+
+    "pociag":[
+        {
+        "trainNum": 15,
+        "trainDriver": "Jan Nowak",
+        "trainType": "osobowy",
+        "trainName": "xd",
+        "trainReg": true,
+        "stations":[
+            {
+                "stationName": "stacja a",
+                "arrival": "11:32",
+                "departure": "12:42"
+            },
+            {
+                "stationName": "stacja b",
+                "arrival": "12:32",
+                "departure": "13:42"
+            }
+        ],
+        "wagony": ["sypialne", "lezenie", "restauracyjne"]
+        },
+        {
+        "trainNum": 55,
+        "trainDriver": "Jan kOWALSKI",
+        "trainType": "osobowy",
+        "trainName": "xd2",
+        "trainReg": false,
+        "stations":[
+            {
+                "stationName": "stacja b",
+                "arrival": "14:32",
+                "departure": "16:42"
+            },
+            {
+                "stationName": "stacja a",
+                "arrival": "16:32",
+                "departure": "21:42"
+            }
+        ],
+        "wagony": ["2 klasa", "restauracyjne", "restauracyjne"]
+        }
+    ]
+}
