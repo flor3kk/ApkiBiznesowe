@@ -1,0 +1,12 @@
+###
+GET http://localhost:8000/api/hotels
+POST http://localhost:8000/api/hotels
+GET http://localhost:8000/api/hotels/1
+PUT http://localhost:8000/api/hotels/1
+DELETE http://localhost:8000/api/hotels/1
+###
+DELETE http://localhost:8000/api/hotels/1/rooms/5
+GET http://localhost:8000/api/hotels/1/rooms/5
+PUT http://localhost:8000/api/hotels/1/rooms/5
+GET http://localhost:8000/api/hotels/1/rooms
+POST http://localhost:8000/api/hotels/1/rooms
