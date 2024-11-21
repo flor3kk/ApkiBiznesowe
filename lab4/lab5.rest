@@ -1,0 +1,203 @@
+###
+GET http://localhost:8000/api/movies
+Content-Type: application/json
+
+# Możliwy rezultat (200 OK)
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Casino Royale",
+            "length": 144,
+            "year": 2006,
+            "director": "Martin Campbell",
+            "actors": []
+        },
+        {
+            "id": 2,
+            "title": "Skyfall",
+            "length": 143,
+            "year": 2012,
+            "director": "Sam Mendes",
+            "actors": [
+                {
+                    "id": 1,
+                    "first_name": "Daniel",
+                    "last_name": "Craig",
+                    "birthday": "1968-03-02",
+                    "height": 178
+                }
+            ]
+        }
+    ]
+}
+
+###
+POST http://localhost:8000/api/movies
+Content-Type: application/json
+
+{
+    "title": "Spectre",
+    "length": 148,
+    "year": 2015,
+    "director": "Sam Mendes"
+}
+
+# Możliwy rezultat (201 Created)
+{
+    "id": 3,
+    "title": "Spectre",
+    "length": 148,
+    "year": 2015,
+    "director": "Sam Mendes",
+    "actors": []
+}
+
+# Możliwy rezultat (422 Unprocessable Content)
+{
+    "error": "Validation failed",
+    "details": {
+        "title": ["The title field is required."]
+    }
+}
+
+
+###
+GET http://localhost:8000/api/movies/1/actors
+Content-Type: application/json
+
+# Możliwy rezultat (200 OK)
+{
+    "data": [
+        {
+            "id": 1,
+            "first_name": "Daniel",
+            "last_name": "Craig",
+            "birthday": "1968-03-02",
+            "height": 178
+        },
+        {
+            "id": 2,
+            "first_name": "Eva",
+            "last_name": "Green",
+            "birthday": "1980-07-06",
+            "height": 170
+        }
+    ]
+}
+
+# Możliwy rezultat (404 Not Found)
+{
+    "error": "Movie not found"
+}
+
+###
+POST http://localhost:8000/api/movies/1/actors
+Content-Type: application/json
+
+{
+    "actor_id": 2
+}
+
+# Możliwy rezultat (200 OK)
+{
+    "data": [
+        {
+            "id": 1,
+            "first_name": "Daniel",
+            "last_name": "Craig",
+            "birthday": "1968-03-02",
+            "height": 178
+        },
+        {
+            "id": 2,
+            "first_name": "Eva",
+            "last_name": "Green",
+            "birthday": "1980-07-06",
+            "height": 170
+        }
+    ]
+}
+
+# Możliwy rezultat (404 Not Found)
+{
+    "error": "Actor not found"
+}
+
+# Możliwy rezultat (422 Unprocessable Content)
+{
+    "error": "Validation failed",
+    "details": {
+        "actor_id": ["The actor_id field is required."]
+    }
+}
+
+
+###
+DELETE http://localhost:8000/api/movies/1/actors/2
+Content-Type: application/json
+
+# Możliwy rezultat (200 OK)
+{
+    "data": [
+        {
+            "id": 1,
+            "first_name": "Daniel",
+            "last_name": "Craig",
+            "birthday": "1968-03-02",
+            "height": 178
+        }
+    ]
+}
+
+# Możliwy rezultat (404 Not Found)
+{
+    "error": "Actor not found in this movie"
+}
+
+
+###
+GET http://localhost:8000/api/actors/1
+Content-Type: application/json
+
+# Możliwy rezultat (200 OK)
+{
+    "id": 1,
+    "first_name": "Daniel",
+    "last_name": "Craig",
+    "birthday": "1968-03-02",
+    "height": 178
+}
+
+# Możliwy rezultat (404 Not Found)
+{
+    "error": "Actor not found"
+}
+
+###
+POST http://localhost:8000/api/actors
+Content-Type: application/json
+
+{
+    "first_name": "Ralph",
+    "last_name": "Fiennes",
+    "birthday": "1962-12-22",
+    "height": 180
+}
+
+# Możliwy rezultat (201 Created)
+{
+    "id": 3,
+    "first_name": "Ralph",
+    "last_name": "Fiennes",
+    "birthday": "1962-12-22",
+    "height": 180
+}
+
+# Możliwy rezultat (422 Unprocessable Content)
+{
+    "error": "Validation failed",
+    "details": {
+        "first_name": ["The first_name field is required."]
+    }
+}
